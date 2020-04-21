@@ -10,5 +10,6 @@
   "arrowParens": "avoid",
   "spacebeforefunctionparen": ["error", "always"],
   "insertSpaceBeforeFunction": true,
-  "javascript.format.insertSpaceBeforeFunctionParenthesis": true
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "prettier.trailingComma": "es6"
 }

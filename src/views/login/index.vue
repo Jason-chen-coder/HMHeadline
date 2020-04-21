@@ -54,7 +54,7 @@ export default {
       if (this.checkData()) {
         // try{}catch{} try里面写运行的代码,如果try中的代码出错了就会执行catch里面的代码然后继续执行后面的代码,如果没出错就直接执行后面的代码
         try {
-          console.log('开始发送登录的申请')
+          // console.log('开始发送登录的申请')
           // 使用async修饰包括axios的函数 ， 用await修饰axios请求函数 ；修饰效果为axios请求函数将会变成同步请求，执行完axios请求函数后才会继续往下执行
           const res = await Apilogin(this.obj)
           // window.console.log(res.data.data)
@@ -64,12 +64,21 @@ export default {
           this.$toast.success('登录成功')
           // 将按钮状态设置正常
           this.isloading = false
-          // 进行页面跳转,跳转至首页
-          this.$router.push('/index')
-          console.log('保存至store中的值为', this.$store.state.userinfo)
+          // console.log('登录页', this.$route.path)
+          // 判断是否是因为未登录过来的
+          if (this.$route.path === '/checklogin') {
+            this.$router.back()
+            console.log('返回到未登录前页')
+          } else {
+            // 进行页面跳转,跳转至首页
+            this.$router.push('/index')
+            // console.log('保存至store中的值为', this.$store.state.userinfo)
+          }
         } catch {
           // 登陆失败
           this.$toast.fail('登录失败')
+          this.isloading = false
+          // 将按钮状态设置正常
           this.isloading = false
         }
       } else {
