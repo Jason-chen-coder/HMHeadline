@@ -12,6 +12,7 @@ import '../src/utils/filter'
 import myplugin from '../src/utils/myplugin'
 Vue.use(Vant)
 Vue.use(myplugin)
+document.title = '天天阅读'
 Vue.config.productionTip = false
 new Vue({
   router,
